@@ -86,6 +86,7 @@ class Attribute extends DressElement {
         self._$selectedElement = null;
 
         self.events = {
+			'click #backgroundColorClear': 'resetToInitialBackgroundColorValue',
             'change #fileForBackground': 'onSetRelativePathForBackground',
             'click  #fileForBackgroundClear': 'onClearBackgroundImage',
             'change #cfFiles': 'onSelectImageForCoverFlow',
