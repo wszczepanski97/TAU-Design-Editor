@@ -168,10 +168,11 @@ class AttributeImage extends DressElement {
 	}
 
 	_onSrcImageChange(event) {
-		attributeUtils.setImageSource(event,
+		attributeUtils.readFile(event, filePath => attributeUtils.setAttributeSource(
+			filePath,
 			'src',
 			this._selectedElementId,
-			this._updateImageSourcePath.bind(this));
+			this._updateImageSourcePath.bind(this)))
 	}
 
 	_onSrcImageClear() {

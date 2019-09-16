@@ -87,7 +87,7 @@ class Attribute extends DressElement {
 
         self.events = {
             'change #fileForBackground': 'onSetRelativePathForBackground',
-            'click  #fileForBackgroundClear': 'onClearBackgroundImage',
+            'click  #fileForBackgroundClear': 'onClearBack groundImage',
             'change #cfFiles': 'onSelectImageForCoverFlow',
             'change [name]': 'onCommonStyleChange',
             'keydown [name]': 'onCommonStyleKeydown'
@@ -283,7 +283,7 @@ class Attribute extends DressElement {
 						typeElement.setAttribute('attr-name', optionName);
 						typeElement.$el.on('change', (e) => {
 							const value = (typeName === 'checkbox') ? e.target.checked : typeElement.value;
-							if (designEditor) {
+							if (designEditor && value !== undefined) {
 								designEditor
 									.getModel()
 									.updateAttribute(self._selectedElementId, optionName, value);
@@ -535,10 +535,11 @@ class Attribute extends DressElement {
      * @param {Event} event
      */
 	onSetRelativePathForBackground(event) {
-		attributeUtils.setImageSource(event,
+		attributeUtils.readFile(event, filePath => attributeUtils.setAttributeSource(
+			filePath,
 			'backgroundImage',
 			this._selectedElementId,
-			this._applyBackgroundImageInfo.bind(this));
+			this._applyBackgroundImageInfo.bind(this)));
     }
 
     /**
