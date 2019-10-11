@@ -8,6 +8,9 @@
     }
   },
   "textEditable": true,
+  "externalResources": [
+	"../../brackets/extensions/default/tau/design-editor/node_modules/tau-component-packages/components/button/styles/style.css"
+  ],
   "resources": {
     "css": [
       "../../tau/theme/tau.min.css",
